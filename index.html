@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amirali Abedi, deep learning for image restoration</title>
+<meta name="description" content="MSc student at Politehnica University Timișoara working on deep learning for image super-resolution and embedded AI.">
+<style>
+:root{--bg:#F3F5F9;--ink:#0F1B2D;--muted:#586980;--line:#DAE1EB;--accent:#3B4CCA;--on:#fff;--chip:#E8ECF5}
+@media (prefers-color-scheme:dark){:root{--bg:#0A1020;--ink:#E9EEF8;--muted:#9AA8C0;--line:#222F47;--accent:#8EA2FF;--on:#0A1020;--chip:#141D33}}
+*{box-sizing:border-box}
+html{background:var(--bg);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;color:var(--ink);background:var(--bg);font:17px/1.65 "Avenir Next","Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
+a{color:var(--accent);text-underline-offset:.2em}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem 2rem;padding:1.6rem 0}
+.top b{font-weight:750;letter-spacing:-.01em}
+.top nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+.top nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+.top nav a:hover{color:var(--ink)}
+.hero{display:grid;gap:3rem;align-items:center;padding:2.5rem 0 5rem}
+@media(min-width:62rem){.hero{grid-template-columns:1.05fr 1fr;gap:4.5rem}}
+h1{margin:0 0 1.5rem;font-size:clamp(3.2rem,9vw,6.4rem);line-height:1;font-weight:800;letter-spacing:-.04em}
+.lead{font-size:1.3rem;line-height:1.5;margin:0 0 1.2rem;max-width:34rem}
+.seek{display:flex;gap:.7rem;align-items:flex-start;margin:0 0 2rem;color:var(--muted);max-width:34rem}
+.dot{flex:none;width:.6rem;height:.6rem;margin-top:.55rem;border-radius:50%;background:#22A06B}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.6rem}
+.btn{display:inline-block;padding:.8rem 1.5rem;border-radius:999px;background:var(--accent);color:var(--on);font-weight:650;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}
+.acts a:not(.btn){color:var(--ink);text-decoration-color:var(--line);text-decoration-thickness:2px}
+.acts a:not(.btn):hover{text-decoration-color:var(--accent)}
+.cmp{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 34px 70px -34px rgba(25,35,110,.6)}
+.cmp:focus-within{outline:2px solid var(--accent);outline-offset:5px}
+.cmp canvas{display:block;width:100%;height:100%}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.bar{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:#fff;pointer-events:none}
+.bar::after{content:"";position:absolute;top:50%;left:50%;width:2.7rem;height:2.7rem;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,#3B4CCA 0 4px,#fff 5px);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.tag{position:absolute;bottom:.9rem;padding:.25rem .7rem;border-radius:999px;font-size:.8rem;color:#fff;background:rgba(10,16,32,.62);backdrop-filter:blur(6px);pointer-events:none}
+.tag.l{left:.9rem}.tag.r{right:.9rem}
+.cap{margin:.9rem .2rem 0;font-size:.9rem;color:var(--muted)}
+.row{display:grid;gap:1.2rem 3rem;padding:3.2rem 0;border-top:1px solid var(--line)}
+@media(min-width:56rem){.row{grid-template-columns:12rem 1fr}.row>h2{position:sticky;top:2rem;align-self:start}}
+h2{margin:0;font-size:1.15rem;font-weight:750}
+.pub{margin:0 0 2.4rem;max-width:42rem}
+.pill{display:inline-block;margin-bottom:.7rem;padding:.15rem .75rem;border:1px solid var(--accent);border-radius:999px;font-size:.82rem;color:var(--accent)}
+h3{margin:0 0 .45rem;font-size:1.4rem;line-height:1.3;font-weight:700;letter-spacing:-.015em}
+.pub p,.work p{margin:0;color:var(--muted)}
+.work{margin:0 0 1.7rem;max-width:40rem}
+.work b{display:block;font-weight:700;font-size:1.05rem}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 1.6rem;padding:0;list-style:none}
+.chips li{padding:.3rem .85rem;border-radius:999px;background:var(--chip);font-size:.92rem}
+.grp{margin:0 0 .6rem;font-size:.95rem;color:var(--muted)}
+.edu{margin:0 0 1.4rem;max-width:40rem}
+.edu b{display:block;font-weight:700}
+.edu span{color:var(--muted)}
+.contact{display:grid;margin:0;padding:0;list-style:none;max-width:40rem}
+.contact li{display:grid;grid-template-columns:9.5rem 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.contact span{color:var(--muted)}
+.contact a{overflow-wrap:anywhere}
+footer{padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <b>Amirali Abedi</b>
+  <nav>
+    <a href="#publications">Publications</a>
+    <a href="#research">Research</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Amirali<br>Abedi</h1>
+    <p class="lead">MSc student in Communication Networks at Politehnica University Timișoara, working on deep learning for image restoration and embedded AI.</p>
+    <p class="seek"><i class="dot" aria-hidden="true"></i><span>Looking for a research internship in France in 2027, as a step toward a PhD in computer vision.</span></p>
+    <div class="acts">
+      <a class="btn" href="mailto:amirali.abedi@student.upt.ro">Email me</a>
+      <a href="https://github.com/Amir-Abedi">GitHub</a>
+      <a href="https://www.linkedin.com/in/amirali-abedi">LinkedIn</a>
+      <a href="https://orcid.org/0009-0007-1284-6774">ORCID</a>
+    </div>
+  </div>
+  <div>
+    <div class="cmp">
+      <canvas id="art" width="960" height="720" role="img" aria-label="A synthetic dusk landscape, split between a low-resolution and a full-resolution version"></canvas>
+      <div class="bar" id="bar"></div>
+      <span class="tag l">Low resolution</span>
+      <span class="tag r">Full resolution</span>
+      <input id="rng" type="range" min="0" max="100" value="50" aria-label="Compare low resolution and full resolution">
+    </div>
+    <p class="cap">What super-resolution tries to recover. Drag to compare.</p>
+  </div>
+</section>
+
+<main>
+<section class="row" id="publications">
+  <h2>Publications</h2>
+  <div>
+    <article class="pub">
+      <span class="pill">Accepted at ISETC 2026</span>
+      <h3>Patch-Based Super-Resolution Using Lightweight Convolutional Neural Networks on Resource-Constrained Microcontrollers</h3>
+      <p>Amirali Abedi, Muguraș Mocofan. 2026 International Symposium on Electronics and Telecommunications. Not yet published.</p>
+    </article>
+    <article class="pub">
+      <span class="pill">Accepted at ISETC 2026</span>
+      <h3>Adaptive Image Restoration via Enhanced Multi-Layer SRCNN Architectures</h3>
+      <p>Amirali Abedi, Muguraș Mocofan. 2026 International Symposium on Electronics and Telecommunications. Not yet published.</p>
+    </article>
+  </div>
+</section>
+
+<section class="row" id="research">
+  <h2>Research work</h2>
+  <div>
+    <div class="work"><b>Super-resolution on microcontrollers</b><p>Lightweight CNN-based super-resolution deployed on an NXP board with Embedded C++.</p></div>
+    <div class="work"><b>SRCNN variants at 3x</b><p>A 4-layer SRCNN compared with the 3-layer baseline and with sharp and smooth 3-layer variants, evaluated with PSNR and SSIM on Set14. Notebooks and models are on Kaggle.</p></div>
+    <div class="work"><b>One research project per semester</b><p>Image classification with ResNet, DenseNet and MobileNet; super-resolution; object detection with YOLO (ongoing).</p></div>
+  </div>
+</section>
+
+<section class="row" id="skills">
+  <h2>Skills</h2>
+  <div>
+    <p class="grp">Deep learning</p>
+    <ul class="chips"><li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>Hugging Face Transformers</li><li>CNNs</li><li>GANs</li><li>Diffusion models</li></ul>
+    <p class="grp">Vision</p>
+    <ul class="chips"><li>Image processing</li><li>Super-resolution</li><li>Object detection</li><li>Anomaly detection</li></ul>
+    <p class="grp">Embedded and tools</p>
+    <ul class="chips"><li>Embedded C++</li><li>NXP</li><li>Arduino</li><li>Python</li><li>C++</li><li>MATLAB</li><li>Git</li><li>LaTeX</li></ul>
+  </div>
+</section>
+
+<section class="row" id="education">
+  <h2>Education</h2>
+  <div>
+    <div class="edu"><b>MSc in Electronics, Telecommunications and Information Technology</b><span>Politehnica University Timișoara, Communication Networks, expected June 2027.</span></div>
+    <div class="edu"><b>Erasmus+ Blended Intensive Programme, XR meets Health Tech</b><span>Vidzeme University of Applied Sciences, Valmiera, Latvia, May to June 2026.</span></div>
+  </div>
+</section>
+
+<section class="row" id="contact">
+  <h2>Contact</h2>
+  <ul class="contact">
+    <li><span>Email, university</span><a href="mailto:amirali.abedi@student.upt.ro">amirali.abedi@student.upt.ro</a></li>
+    <li><span>Email, personal</span><a href="mailto:amiraliabedi97@gmail.com">amiraliabedi97@gmail.com</a></li>
+    <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/amirali-abedi">linkedin.com/in/amirali-abedi</a></li>
+    <li><span>ORCID</span><a href="https://orcid.org/0009-0007-1284-6774">0009-0007-1284-6774</a></li>
+    <li><span>Hugging Face</span><a href="https://huggingface.co/AmiraliAbedi">huggingface.co/AmiraliAbedi</a></li>
+    <li><span>Kaggle</span><a href="https://www.kaggle.com/amiraliabedi97">kaggle.com/amiraliabedi97</a></li>
+    <li><span>GitHub</span><a href="https://github.com/Amir-Abedi">github.com/Amir-Abedi</a></li>
+  </ul>
+</section>
+</main>
+
+<footer>© 2026 Amirali Abedi</footer>
+</div>
+
+<script>
+(function(){
+  var c=document.getElementById('art'),ctx=c.getContext('2d'),rng=document.getElementById('rng'),bar=document.getElementById('bar');
+  function scene(g,w,h){
+    var k=g.createLinearGradient(0,0,0,h);
+    k.addColorStop(0,'#171B63');k.addColorStop(.45,'#7B3FA6');k.addColorStop(.78,'#F0668A');k.addColorStop(1,'#FFB86B');
+    g.fillStyle=k;g.fillRect(0,0,w,h);
+    var sx=w*.66,sy=h*.58,r=h*.19,s=g.createRadialGradient(sx,sy,r*.2,sx,sy,r*2.2);
+    s.addColorStop(0,'rgba(255,226,170,.75)');s.addColorStop(1,'rgba(255,200,140,0)');
+    g.fillStyle=s;g.fillRect(0,0,w,h);
+    g.fillStyle='#FFF0CF';g.beginPath();g.arc(sx,sy,r,0,6.3);g.fill();
+    g.fillStyle='#E0577F';
+    for(var i=1;i<6;i++){g.fillRect(sx-r,sy+r*(.05+i*.17),r*2,r*(.015+i*.012));}
+    g.fillStyle='rgba(255,255,255,.85)';
+    for(i=0;i<46;i++){g.fillRect((i*97%100)/100*w,(i*53%38)/100*h,w/380,w/380);}
+    function ridge(y0,a,col,f){g.fillStyle=col;g.beginPath();g.moveTo(0,h);for(var x=0;x<=w;x+=w/64){g.lineTo(x,y0+Math.sin(x*f)*a+Math.sin(x*f*2.9+1)*a*.45);}g.lineTo(w,h);g.fill();}
+    ridge(h*.72,h*.05,'#43297F',.011);ridge(h*.8,h*.045,'#2A1B5E',.017);ridge(h*.9,h*.03,'#150F36',.026);
+    g.strokeStyle='rgba(255,170,220,.55)';g.lineWidth=w/520;g.beginPath();
+    for(i=0;i<10;i++){var y=h*(.88+i*i*.0016);g.moveTo(0,y);g.lineTo(w,y);}
+    for(i=-8;i<=8;i++){g.moveTo(w/2+i*w*.02,h*.88);g.lineTo(w/2+i*w*.16,h);}
+    g.stroke();
+  }
+  var hi=document.createElement('canvas'),lo=document.createElement('canvas');
+  hi.width=960;hi.height=720;lo.width=60;lo.height=45;
+  scene(hi.getContext('2d'),960,720);scene(lo.getContext('2d'),60,45);
+  function draw(p){
+    ctx.imageSmoothingEnabled=true;ctx.drawImage(hi,0,0);
+    ctx.save();ctx.beginPath();ctx.rect(0,0,960*p/100,720);ctx.clip();
+    ctx.imageSmoothingEnabled=false;ctx.drawImage(lo,0,0,60,45,0,0,960,720);ctx.restore();
+    bar.style.left=p+'%';
+  }
+  function set(p){rng.value=p;draw(p);}
+  var user=false;
+  rng.addEventListener('input',function(){user=true;draw(+rng.value);});
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){set(50);return;}
+  var t0=null;set(6);
+  requestAnimationFrame(function step(t){
+    if(user)return;
+    t0=t0||t;var q=Math.min(1,(t-t0)/1700),e=1-Math.pow(1-q,3);
+    set(6+e*50);
+    if(q<1)requestAnimationFrame(step);
+  });
+})();
+</script>
+</body>
+</html>
