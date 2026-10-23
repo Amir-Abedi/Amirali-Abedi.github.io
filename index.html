@@ -15,7 +15,7 @@
 *{box-sizing:border-box}
 html{background:var(--bg);scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;color:var(--ink);background:radial-gradient(46rem 32rem at 92% -4%,rgba(255,190,224,.55),transparent 70%) no-repeat,radial-gradient(44rem 30rem at 3% 0%,rgba(170,192,255,.55),transparent 70%) no-repeat,var(--bg);font:17px/1.65 "Avenir Next","Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;color:var(--ink);background:transparent;font:17px/1.65 "Avenir Next","Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .wrap{max-width:70rem;margin:0 auto;padding:0 1.5rem}
 a{color:var(--accent);text-underline-offset:.2em}
 a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
@@ -60,7 +60,7 @@ h1{width:max-content;max-width:100%;margin:0 0 1.5rem;font:700 clamp(3.2rem,9vw,
 
 /* fixed background image with a soft light veil so the text stays readable */
 .bgimg{position:fixed;inset:0;z-index:-1;background:var(--bg-img) center/cover no-repeat,var(--bg)}
-.bgimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,246,255,.02) 0%,rgba(244,246,255,.02) 50%,rgba(244,246,255,.02) 100%)}
+.bgimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(244,246,255,.12) 0%,rgba(244,246,255,.28) 50%,rgba(244,246,255,.45) 100%)}
 .row{display:grid;gap:1.2rem 3rem;padding:2.2rem 2rem;margin:0 0 1.5rem;border:1px solid rgba(255,255,255,.7);border-radius:24px;background:rgba(255,255,255,.45);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 24px 50px -34px rgba(69,83,224,.45)}
 .row>h2{color:var(--accent)}
 @media(min-width:56rem){.row{grid-template-columns:12rem 1fr}.row>h2{position:sticky;top:2rem;align-self:start}}
