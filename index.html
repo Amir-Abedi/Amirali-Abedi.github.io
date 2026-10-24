@@ -43,6 +43,9 @@ h1{width:max-content;max-width:100%;margin:0 0 1.5rem;font:700 clamp(2.4rem,6vw,
 .acts{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.6rem}
 .btn{display:inline-block;padding:.8rem 1.5rem;border-radius:999px;background:linear-gradient(135deg,var(--accent),#7E5BE0);color:var(--on);font-weight:650;text-decoration:none;box-shadow:0 10px 24px -12px rgba(100,90,230,.65)}
 .btn:hover{filter:brightness(1.08)}
+/* secondary button: the CV file is cv.pdf, uploaded next to index.html */
+.acts a.btn.alt{background:rgba(255,255,255,.85);color:var(--accent);border:1.5px solid var(--accent);box-shadow:none;padding:calc(.8rem - 1.5px) calc(1.5rem - 1.5px);text-decoration:none}
+.acts a.btn.alt:hover{background:#fff;filter:none}
 .acts a:not(.btn){color:var(--ink);text-decoration-color:var(--line);text-decoration-thickness:2px}
 .acts a:not(.btn):hover{text-decoration-color:var(--pink)}
 
@@ -131,6 +134,7 @@ footer{padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted)
     <p class="seek"><i class="dot" aria-hidden="true"></i><span>Looking for a research internship in 2027, as a step toward a PhD in computer vision.</span></p>
     <div class="acts">
       <a class="btn" href="mailto:amirali.abedi@student.upt.ro">Email me</a>
+      <a class="btn alt" href="cv.pdf" download="Amirali_Abedi_CV.pdf">Download CV</a>
       <a href="https://github.com/Amir-Abedi">GitHub</a>
       <a href="https://www.linkedin.com/in/amirali-abedi">LinkedIn</a>
       <a href="https://orcid.org/0009-0007-1284-6774">ORCID</a>
@@ -139,15 +143,15 @@ footer{padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted)
   <div>
     <div class="cmp" id="cmp">
       <!-- SLOT 1 of 2: the EDSR image (shown on the right of the handle). Put its address in src="". -->
-      <img id="edsr" src="cate.png" alt="Image upscaled 4 times with my trained EDSR model" draggable="false">
+      <img id="edsr" src="cate.png" alt="Metropolitan Cathedral of Timișoara upscaled 4 times with my EDSR model trained on DIV2K" draggable="false">
       <!-- SLOT 2 of 2: the bicubic image (shown on the left). Same pixel size as the EDSR image. -->
-      <img id="bic" src="catb.png" alt="The same image upscaled 4 times with bicubic interpolation" draggable="false">
+      <img id="bic" src="catb.png" alt="Metropolitan Cathedral of Timișoara upscaled 4 times with bicubic interpolation" draggable="false">
       <div class="bar" id="bar"></div>
       <span class="tag l">Bicubic</span>
       <span class="tag r">EDSR</span>
       <input id="rng" type="range" min="0" max="100" value="50" aria-label="Compare bicubic interpolation and EDSR">
     </div>
-    <p class="cap">The same 4× upscaling, two methods: bicubic interpolation on the left, my trained EDSR model on the right. Drag to compare.</p>
+    <p class="cap">The Metropolitan Cathedral of Timișoara, upscaled 4× two ways: bicubic interpolation on the left, my EDSR model on the right. The model was trained on DIV2K. Drag to compare.</p>
     <a class="more" href="https://www.kaggle.com/code/amiraliabedi97/edsr-inference" target="_blank" rel="noopener">
       <span class="ico" aria-hidden="true">&#9654;</span>
       <span class="txt"><b>Want to compare more images?</b><small>Open the live notebook on Kaggle and try other examples</small></span>
@@ -205,6 +209,7 @@ footer{padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted)
 <section class="row" id="contact">
   <h2>Contact</h2>
   <ul class="contact">
+    <li><span>CV</span><a href="cv.pdf" download="Amirali_Abedi_CV.pdf">Download CV (PDF)</a></li>
     <li><span>Email, university</span><a href="mailto:amirali.abedi@student.upt.ro">amirali.abedi@student.upt.ro</a></li>
     <li><span>Email, personal</span><a href="mailto:amiraliabedi97@gmail.com">amiraliabedi97@gmail.com</a></li>
     <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/amirali-abedi">linkedin.com/in/amirali-abedi</a></li>
